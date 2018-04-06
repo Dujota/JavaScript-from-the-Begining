@@ -34,3 +34,24 @@ console.timeEnd('hello');
 
 
 
+//VARIABLES
+
+// var, let, const
+
+var name = 'John Doe';
+console.log(name);
+
+//reassign variable values
+name = 'Steve Smith';
+console.log(name);
+
+// initialize variables
+
+var greeting;
+console.log(greeting); // will be undefined
+ greeting = 'Hello there';
+console.log(greeting);
+
+// one of the reasons we initialize a variable with no value is for if cases 
+
+
