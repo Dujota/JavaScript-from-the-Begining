@@ -135,3 +135,10 @@ console.log(typeof address);
 const today = new Date();
 console.log(today);
 console.log(typeof today);
+
+
+// TYPE Conversion
+
+let val; // initialize
+
+
