@@ -515,9 +515,11 @@ birthday = new Date('September 10, 1981');
 birthday = new Date('9/10/81');
 valDate = birthday; // displays the date as entered above for the new Date(); function
 
-valDate = today.getMonth();
+valDate = today.getMonth(); // 0 based which means january is # 0, so we would need to add 1 to get the exact month number
 
-
+valDate = today.getDate(); // gives the day of the month  as a # example 4/7/18 returns 7
+valDate = today.getDay(); //  returns the # of the day in the week example saturday = 6 
+valDate = today.getFullYear(); // gives the year of the date 
 
 
 console.log(valDate);
