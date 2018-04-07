@@ -458,3 +458,35 @@ console.log(nums2);
 console.log(nums);
 console.log(valArray);
 
+// OBJECT LITERALS
+
+const person1 = {
+  firstName: 'Steve',
+  lastName: 'Smith',
+  age: 30,
+  email: 'steve@aol.com',
+  hobbies: ['music', 'sports'],
+  address: {
+    city: 'Miami',
+    state: 'FL'
+  },
+  getBirthYear: function() {
+   return 2018 - this.age; 
+  }
+};
+
+let valObject;
+
+valObject = person1;
+
+// get a specific value
+
+valObject = person1.firstName // Steve
+valObject = person1['firstName']; // same as above but 1st method is preferred. 
+valObject = person1.hobbies[1]; // sports
+valObject = person1.address; // whole address object
+valObject = person1.address.state; // FL
+valObject = person1.getBirthYear();
+
+
+console.log(valObject);
