@@ -118,7 +118,7 @@ console.log(typeof hasKids);
  const sym = Symbol();
  console.log(typeof sym);
  
- // REFERENCE TYOES - Objects
+ // REFERENCE TYPES - Objects
 
  //Array
  const hobbies = ['movies', 'music'];
@@ -194,6 +194,7 @@ console.log(typeof sum); // string
 console.clear();
 
 
+// THE MATH OBJECT Methods and Properties
 const num1 = 100;
 const num2 = 50
 
@@ -224,7 +225,33 @@ val = Math.pow(8, 2); // 64, we write the 1st number then the power exponent sec
 // absolute
 val = Math.abs(-3); // 3 abosulte will always give postive #
 
+// Min & Max 
+val = Math.min(2,3,4,1,55,6,3,-2); // returns the smallest # -2 
+val = Math.max(2,3,4,1,55,6,3, -2); // returns the largest # 55
+
+// Random # 
+val = Math.random(); // gives a random decimal # 
+
+// if you want a random whole number you have to multiply by an integer
+val = Math.random() * 20 + 1  // if we dont add + 1 it will generate a random # between 1-19 
+
+// if we want to drop the decimal we have to wrap it in math.floor
+val = Math.floor(Math.random() * 20 + 1) // This is very common in Javascript 
+
+
 console.log(val);
+
+// STRINGS AND CONCATENATION
+
+const firstNames = 'Willaim'
+const lastNames = ' Johnson'
+
+// initialize a new variable to log the results
+let valName;
+
+valName = firstNames + lastNames;
+
+console.log(valName);
 
 
 
