@@ -245,7 +245,7 @@ console.log(val);
 
 const firstNames = 'Willaim';
 const lastNames = 'Johnson';
-
+const ages = 36;
 // initialize a new variable to log the results
 let valName;
 
@@ -260,5 +260,47 @@ valName = firstNames + ' ' + lastNames; // Willaim Johnson
 
 valName = 'Brad ';
 valName += 'Traversy'; // this appends (adds the new value to the existing one) creating output Brad Traversy
+
+
+valName = ' Hello my name is ' + firstNames + ' and I am ' + ages; // Hello my name is William and i am 36
+
+valName = `Hello my name is ${firstNames} and I am ${ages} old` // same output as above concatenation but using ES6 syntax and template literals
+
+// Escaping
+valName = ' That\'s awesome, I can\'t wait ' // can use double quotes or we can use \ to escape the character
+
+// Length
+
+valName = firstNames.length; // 7, we dont use () because length is a property not a mehtod 
+
+// concat method, works like adding strings but using a method
+valName = firstNames.concat(' ', lastNames); // same resule as the concatenate : William Johnson
+
+// Change Case lower or upper
+
+valName = firstNames.toLocaleUpperCase(); // WILLIAM
+
+valName = firstNames.toLocaleLowerCase(); // william
+
+//String as Arrays
+
+valName = firstNames[0]; // W
+
+// indexOf()
+
+valName = firstNames.indexOf('W') // 0 is index of W 
+valName = firstNames.indexOf('z'); // -1 will show if char is not in the string
+
+valName = firstNames.lastIndexOf('l'); // 3 which is position 3
+
+// charAt() .. opposite of indexOf
+
+valName = firstNames.charAt(2); // returns l since l is at string[2]
+
+// Get last Char
+valName = firstNames.charAt(firstNames.length - 1) // this gets the last character of a string, this is a very common formula in JS wen dealing with strings
+
+
+
 
 console.log(valName);
