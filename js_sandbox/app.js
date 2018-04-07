@@ -469,9 +469,9 @@ const person1 = {
   address: {
     city: 'Miami',
     state: 'FL'
-  },
+  }, // within objects we can access its properties
   getBirthYear: function() {
-   return 2018 - this.age; 
+   return 2018 - this.age; // when inside an object, we need to use the this keyword which will pertain to the object itself
   }
 };
 
@@ -490,3 +490,12 @@ valObject = person1.getBirthYear();
 
 
 console.log(valObject);
+
+const people = [
+  {name: 'John', age: 30},
+  {name: 'Mike', age: 23}
+];
+
+for (let index = 0; index < people.length; index++) {
+  console.log(people[index].name);
+}
