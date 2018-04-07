@@ -243,17 +243,22 @@ console.log(val);
 
 // STRINGS AND CONCATENATION
 
-const firstNames = 'Willaim'
-const lastNames = ' Johnson'
+const firstNames = 'Willaim';
+const lastNames = 'Johnson';
 
 // initialize a new variable to log the results
 let valName;
 
-valName = firstNames + lastNames;
+valName = firstNames + lastNames; // WilliamJohnson
+
+
+// Concatenation
+
+valName = firstNames + ' ' + lastNames; // Willaim Johnson 
+
+// Append
+
+valName = 'Brad ';
+valName += 'Traversy'; // this appends (adds the new value to the existing one) creating output Brad Traversy
 
 console.log(valName);
-
-
-
-
-
