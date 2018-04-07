@@ -677,6 +677,38 @@ if(id ===100)
   console.log('correct');
 else
   console.log('incorrect');
+
+
+// SWTICHES -another way to validate conditions
+
+/* syntax is switch (variable) 
+  case value : 
+    do somehting here
+    break; <--- closes the loop
+
+  continue with as many cases as we want until were done and instead of an else
+  statement we use default
+
+  default: <--- works like an else 
+    do somehting here <--- this will be output if all other cases === false
+    break; <-- this will close the loop if all other cases are false
+
+*/
+
+const colors = 'red';
+
+switch (colors) {
+  case 'red':
+    console.log('color is red');
+    break;
+  case 'blue':
+    console.log('color is blue');
+    break;
+
+  default:
+    console.log('color is not red or blue');
+    break;
+}
   
   
 
