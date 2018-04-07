@@ -670,3 +670,13 @@ first we have condition id === 100
 'Incorrect' outoputs when condition = false
 */
 
+
+//WITHOUT BRACES -- not recommended
+
+if(id ===100)
+  console.log('correct');
+else
+  console.log('incorrect');
+  
+  
+
