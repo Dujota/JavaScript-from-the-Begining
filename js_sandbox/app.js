@@ -431,6 +431,30 @@ valArray = nums.concat(nums2); // adds the two arrays together to make one big a
 // Sorting arrays
 valArray = fruits.sort(); // sorts the contents of the fruits array alphabetical since they are strings
 
+valArray = nums.sort(); //  it sorts based off of the 1st #, in order for us to get a proper sort, we need a callback function
+
+// Use the "compare function" to sort numbers in array
+
+valArray = nums.sort(function (first, second) {
+  return first - second
+}); // [5, 36, 43, 44] ascending sort for first - second
+
+valArray = nums.sort(function (first, second) {
+  return second - first
+}); // [5, 36, 43, 44]  descending sort for second - first
+
+// Find 
+function under50(num) {
+  return num < 50;
+};
+
+function over50(num) {
+  return num > 50;
+};
+valArray = nums2.find(under50); // 22
+valArray = nums2.find(over50); // 76
+
+console.log(nums2);
 console.log(nums);
 console.log(valArray);
 
