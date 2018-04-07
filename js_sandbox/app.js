@@ -132,9 +132,9 @@ const address = {
 console.log(typeof address);
 
 // Dates
-const today = new Date();
-console.log(today);
-console.log(typeof today);
+const today1 = new Date();
+console.log(today1);
+console.log(typeof today1);
 
 console.clear(); // CLEARING CONSOLE HERE
 
@@ -493,9 +493,32 @@ console.log(valObject);
 
 const people = [
   {name: 'John', age: 30},
-  {name: 'Mike', age: 23}
+  {name: 'Mike', age: 23},
+  {name: 'Nancy', age: 53}
 ];
 
 for (let index = 0; index < people.length; index++) {
-  console.log(people[index].name);
+  console.log(people[index].name); // displays the names of the person for each instance of the loop
 }
+
+console.clear();
+
+// DATE & TIME
+
+let valDate;
+
+const today = new Date(); // if nothing specified, then it will pick up time and date now.
+
+// below are different ways to delcare dates into the Date object, check MDN docs for more ways to declare date 
+let birthday = new Date('9-10-1981 11:25:20');
+birthday = new Date('September 10, 1981');
+birthday = new Date('9/10/81');
+valDate = birthday; // displays the date as entered above for the new Date(); function
+
+valDate = today.getMonth();
+
+
+
+
+console.log(valDate);
+
