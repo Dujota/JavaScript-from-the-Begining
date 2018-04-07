@@ -695,7 +695,9 @@ else
 
 */
 
-const colors = 'red';
+
+// suggest to use a switch wehn there are a lot of different cases for an if statement and a switch will be easier to read and follow, it works exactly like an if else statement
+const colors = 'yellow';
 
 switch (colors) {
   case 'red':
@@ -709,6 +711,35 @@ switch (colors) {
     console.log('color is not red or blue');
     break;
 }
-  
-  
+
+
+// SWITCHES WITH DATES
+let day;
+
+switch (new Date().getDay()) {
+  case 0:
+    day = 'Sunday'
+    break;
+    case 1:
+    day = 'Monday'
+    break;
+    case 2:
+    day = 'Tuesday'
+    break;
+    case 3:
+    day = 'Wednesday'
+    break;
+    case 4:
+    day = 'Thursday'
+    break;
+    case 5:
+    day = 'Friday'
+    break;
+    case 6:
+    day = 'Saturday'
+    break;   
+}
+
+console.log(`Today is ${day}`);
+
 
