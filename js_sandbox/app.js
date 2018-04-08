@@ -783,6 +783,30 @@ console.log(square(4));
   
 })('Brad');
 
-// this is for module design patterns 
+console.clear();
+// this is really useful for module design patterns 
 
+
+// PROPERTY METHODS -- when a function is put inside an object its called a method
+
+const todo = {
+  add: function () {
+    console.log('Add todo..'); 
+  },
+  edit: function (id) {
+    console.log(`Edit todo ${id}`);
+    
+  }
+}
+
+// adds a new function to the object that was declared, if we call the object after we assign the new function to it, you will see it appear there and then we can call it later as a method
+todo.delete = function () {
+  console.log('delete todo...');
+  
+}
+
+todo.add(); // calls the function add in the object
+todo.edit(22); // calls the edit function in the object
+todo.delete(); // calling the delete method that we added earlier to the object
+console.log(todo); // you can see all the functions in the object including delete that was added.
 
