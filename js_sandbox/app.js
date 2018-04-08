@@ -739,7 +739,28 @@ switch (new Date().getDay()) {
     day = 'Saturday'
     break;   
 }
-
 console.log(`Today is ${day}`);
+
+// FUNCTION DELCARATION 
+
+//doesnt do anything unless you invoke it
+
+//in ES6 we can define the default value of the parameter inside the function itself instead of using the typeof conditionals
+function greet(firstName = 'John', lastName='Doe') {
+  //default in es5
+  // if(typeof firstName === 'undefined') {firstName = 'John'}
+  // if (typeof lastName === 'undefined') {lastName = 'Doe'}
+  // console.log('Hello');
+  return `Hello ${firstName} ${lastName}`
+}
+
+console.log(greet()); // we are now invoking it
+
+// FUNCTION EXPRESSIONS - basically putting a function as a variable assignment
+
+// can be a named or annonymous function but usually they are annonymouse
+const square = function (x) {
+  return x * x
+}; // we need the semicolon because it is a variable
 
 
