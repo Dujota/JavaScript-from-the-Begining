@@ -759,8 +759,30 @@ console.log(greet()); // we are now invoking it
 // FUNCTION EXPRESSIONS - basically putting a function as a variable assignment
 
 // can be a named or annonymous function but usually they are annonymouse
-const square = function (x) {
+const square = function (x=2) {
   return x * x
 }; // we need the semicolon because it is a variable
+
+console.log(square(4));
+
+// IMMEDIATELY INVOKABLE FUNCTION EXPRESSIONS - IIFEs - basically a function that you declare and  run at the same time, and it needs to be an expression. We can make it an expression by putting into parenthesis () and then followed by (); to invoke
+
+/* Syntax is 
+(function name(params) {
+  some logic inside here
+})();
+*/
+ 
+(function () {
+  console.log('IIFE Ran...');
+  
+})();
+
+(function (name) {
+  console.log(`Hello ${name}`);
+  
+})('Brad');
+
+// this is for module design patterns 
 
 
