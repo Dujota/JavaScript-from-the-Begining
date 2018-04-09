@@ -51,3 +51,4 @@ scriptsArray.forEach(script => { // we can now use the for each loop on the coll
 
 
 console.log(val);
+console.clear();
