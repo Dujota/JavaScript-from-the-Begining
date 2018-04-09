@@ -80,3 +80,4 @@ val3 = window.navigator.vendor; // the maker of browser
 val3 = window.navigator.language;
 
 console.log(val3);
+console.clear();
