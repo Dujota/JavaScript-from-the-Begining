@@ -40,7 +40,11 @@ console.log(document.querySelector('h5'));
 document.querySelector('li').style.color = 'red' // it is a single selector so it will impact only the first one
 document.querySelector('ul li').style.color = 'blue'; //can use any kind of css selector
 document.querySelector('li:last-child').style.color = 'red'; // can use pseudo selectors
-document.querySelector('li:nth-child(3)').style.color = 'yellow' //can select a particular child 
+document.querySelector('li:nth-child(3)').style.color = 'yellow' //can select a particular child with the :nth-child(#) selector
+document.querySelector('li:nth-child(4').textContent = 'HelloWorld';
 
+document.querySelector('li:nth-child(odd)').style.background = '#CCC'; //even if we choose even or odd, it will impact the 1st odd or even to modify since query selector only picks first one thats the only one that will be impacted
+
+document.querySelector('li:nth-child(even)').style.background = '#AAA';
 
 
