@@ -48,3 +48,5 @@ document.querySelector('li:nth-child(odd)').style.background = '#CCC'; //even if
 document.querySelector('li:nth-child(even)').style.background = '#AAA';
 
 
+console.clear();
+
