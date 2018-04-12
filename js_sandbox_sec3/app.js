@@ -50,7 +50,7 @@ const allItems = document.querySelectorAll('ul.collection li.collection-item');
 
 //can do array mehtod on the node list 
 allItems.forEach(function(item, index) {
-  item.textContent = `${index}: Hello, i changed this with query selector All`
+  item.textContent = `${index}: Hello, i changed this with query selector All loop`
 });
 
 console.log(allItems);
