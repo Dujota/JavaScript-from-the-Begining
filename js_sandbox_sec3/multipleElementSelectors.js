@@ -69,3 +69,5 @@ liOdd.forEach(function(li, index) {
 for (let i = 0; i < liEven.length; i++) {
   liEven[i].style.background = 'lightgreen'  
 }
+
+console.clear();
