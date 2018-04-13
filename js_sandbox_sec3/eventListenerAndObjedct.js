@@ -53,3 +53,5 @@ function onClick(event) {
   console.log(val); 
   
 } 
+
+console.clear();
