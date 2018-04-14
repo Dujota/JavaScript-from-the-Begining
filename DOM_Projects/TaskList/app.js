@@ -11,6 +11,8 @@ loadEventListeners();
 
 // Load all event listeners
 function loadEventListeners() {
+  //DOM LOAD EVENT
+  document.addEventListener('DOMContentLoaded', getTasks);
   // Add Task event
   form.addEventListener('submit', addTask);
   // Remove task event
@@ -21,6 +23,41 @@ function loadEventListeners() {
   filter.addEventListener('keyup', filterTasks);
 }
 
+// DOM CONTENT LOADED - GET TASKS FROM LOCALSTORAGE 
+function getTasks(task) {
+  let tasks;
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks'));
+  }
+
+  tasks.forEach(function(task) {
+  // Create li Element
+  const li = document.createElement('li');
+  
+  // Add class
+  li.className = 'collection-item'; 
+  
+  // Create Text node and Append to li
+  li.appendChild(document.createTextNode(task));
+  
+  // Create new link element
+  const link = document.createElement('a');
+  
+  // Add Class
+  link.className = 'delete-item secondary-content' 
+  
+  // Add icon HTML
+  link.innerHTML = '<i class="fa fa-remove"></i>';
+  
+  // Append Link to li
+  li.appendChild(link);
+  
+  // Append li to ul
+  taskList.appendChild(li);
+  });
+}
 
 // ADD A TASK FUNCTION
 function addTask(e) {
@@ -51,11 +88,38 @@ function addTask(e) {
   // Append li to ul
   taskList.appendChild(li);
 
+  // Store in Local Storage
+
+  storeTaskInLocalStorage(taskInput.value);
+
   // Clear the input
   taskInput.value = '';
 
   // stop the form submit
   e.preventDefault();
+}
+
+// STORE TASK FUNCTION
+
+  /* Persist Data to Local Storage -- part of JS, no 3rd party software required. 
+  After we add it to the DOM we will call another funciton that wills save the data into local storage
+  */
+
+function storeTaskInLocalStorage(task) {
+  let tasks;
+  if (localStorage.getItem('tasks') === null) {
+    tasks = [] // if it doesnt exist, create an empty array
+  } else {
+    tasks = JSON.parse(localStorage.getItem('tasks')) // if it does exist, then get it out and parse into array
+  }
+
+  // then push the new task to the parsed tasks array 
+  tasks.push(task);
+
+  // set it back to localStorage
+
+  localStorage.setItem('tasks', JSON.stringify(tasks)); // now we put the whole array with the newly pushed items back into local storage by assigning it to tasks and JSON.stringify to convert back to a string which can be stored
+
 }
 
 // REMOVE TASK FUNCTION
@@ -99,3 +163,4 @@ function filterTasks(e) {
     }
   });
 }
+
