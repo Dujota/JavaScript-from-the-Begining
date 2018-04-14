@@ -134,8 +134,22 @@ function removeTask(e) {
   }
 }
 
-function removeTaskFromLocalStorage(li) {
-  
+function removeTaskFromLocalStorage(taskItem) { 
+  // console.log(taskItem); // this function works with the li that was removed
+  let tasks;
+  if (localStorage.getItem(tasks) === null)  {
+      tasks = [];
+  } else {
+    tasks = JSON.parse(localStorage.getItem(tasks));
+  }
+
+  tasks.forEach(function(task, index) {
+    if (taskItem.textContent === task) { // here we check if the text in the li matches the saved string (the particular task in the loop)
+      tasks.splice(index, 1); // how it works: splice(index, deletecount), thats how to delete item form array
+    }
+  });
+
+  localStorage.setItem('tasks', JSON.stringify(tasks)); // once the task is removed in the forEach, we resave the new array back into local storage
 }
 
 
@@ -150,6 +164,13 @@ function clearTasks(e) {
   while (taskList.firstChild) { // while there is still a child
     taskList.removeChild(taskList.firstChild) // keep removing 1st child until above condition is false
   }
+
+  // Clear tasks from Local Storage
+  clearTasksFromLocalStorage();
+}
+
+function clearTasksFromLocalStorage() {
+  localStorage.clear();
 }
 
 // FILTER TASKS FUNCTION
