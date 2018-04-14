@@ -10,14 +10,15 @@ const taskInput = document.querySelector('#task');
 loadEventListeners();
 
 // Load all event listeners
-
 function loadEventListeners() {
-  // add Task event
+  // Add Task event
   form.addEventListener('submit', addTask);
-  //remove task event
+  // Remove task event
   taskList.addEventListener('click', removeTask);
-  //Clear Task Event
+  // Clear Task Event 
   clearBtn.addEventListener('click', clearTasks);
+  // Filter tasks event
+  filter.addEventListener('keyup', filterTasks);
 }
 
 
@@ -71,15 +72,32 @@ function removeTask(e) {
 function clearTasks(e) {
   // taskList.innerHTML = ''; // option 1
 
-  // use While (element.firstChild) {} method 
+  // use While (element.firstChild) {} method  Option 2
   // FASTER and more Preferred method, check https://jsperf.com/innerhtml-vs-removechild/
   
   while (taskList.firstChild) { // while there is still a child
     taskList.removeChild(taskList.firstChild) // keep removing 1st child until above condition is false
   }
+}
 
+// FILTER TASKS FUNCTION
 
+function filterTasks(e) {
+  const text = e.target.value.toLowerCase(); // get the string typed and always keep lowercase
+  // take all list items
+  document.querySelectorAll('.collection-item').forEach(function(task) {
+    const item = task.firstChild.textContent;
+    /*
+    The indexOf() method returns the position of the first occurrence of a specified value in a string.
+    This method returns -1 if the value to search for never occurs.
+    */
 
+    if (item.toLowerCase().indexOf(text) != -1) { // this checks if the text that was typed and saved in text variable exists in the task list, if true display block, if not, then remove (display = 'none')
+      task.style.display = 'block';
+    } else {
+      task.style.display = 'none'
+    }
+  });
 
-
+  // console.log(text);
 }
