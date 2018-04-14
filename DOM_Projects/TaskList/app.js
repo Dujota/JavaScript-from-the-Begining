@@ -14,6 +14,10 @@ loadEventListeners();
 function loadEventListeners() {
   // add Task event
   form.addEventListener('submit', addTask);
+  //remove task event
+  taskList.addEventListener('click', removeTask);
+  //Clear Task Event
+  clearBtn.addEventListener('click', clearTasks);
 }
 
 
@@ -53,3 +57,29 @@ function addTask(e) {
   e.preventDefault();
 }
 
+// REMOVE TASK FUNCTION
+function removeTask(e) {
+  if (e.target.parentElement.classList.contains('delete-item')) { // makes sure we are selecting the right element on the event
+    if (confirm('Are You Sure?')) { // pops a message, true if hit ok
+      e.target.parentElement.parentElement.remove(); // remove parent of parent which is the li iteself li>a>i  
+    } 
+  }
+}
+
+// CLEAR TASKS FUNCTION
+
+function clearTasks(e) {
+  // taskList.innerHTML = ''; // option 1
+
+  // use While (element.firstChild) {} method 
+  // FASTER and more Preferred method, check https://jsperf.com/innerhtml-vs-removechild/
+  
+  while (taskList.firstChild) { // while there is still a child
+    taskList.removechild(taskList.firstChild) // keep removing 1st child until above condition is false
+  }
+
+
+
+
+
+}
