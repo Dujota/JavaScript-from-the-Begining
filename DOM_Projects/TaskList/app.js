@@ -75,7 +75,7 @@ function clearTasks(e) {
   // FASTER and more Preferred method, check https://jsperf.com/innerhtml-vs-removechild/
   
   while (taskList.firstChild) { // while there is still a child
-    taskList.removechild(taskList.firstChild) // keep removing 1st child until above condition is false
+    taskList.removeChild(taskList.firstChild) // keep removing 1st child until above condition is false
   }
 
 
