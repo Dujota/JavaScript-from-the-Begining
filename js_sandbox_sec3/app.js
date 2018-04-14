@@ -29,8 +29,32 @@ document.querySelector('.col').addEventListener('click', function () {
 });
 
 */
-const deleteItem = document.querySelector('.delete-item');
+
+
+
+
 
 
 
 // EVENT DELAGATION
+
+/*
+1.) need event delagation when you have more than one of the same elements that require the same event
+
+const delItem = document.querySelector('.delete-item');
+
+delItem.addEventListener('click', deleteItem); <--- would only register the 1st delete item and not the rest
+
+2.) when you insert a new element into the DOM that was not on the page originally but sitll need it to have the event listener. 
+*/
+
+// as a result we need to add the event listner to a parent, we can use any parent 
+
+document.addEventListener('click', deleteItem);
+
+function deleteItem(e) {
+  if (e.target.parentElement.className === 'delete-item secondary-content') { //className looks for the whole class string, have to match exactly or wont work
+    console.log('delete-item');
+    
+  }
+}
