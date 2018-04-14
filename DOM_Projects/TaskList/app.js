@@ -127,9 +127,17 @@ function removeTask(e) {
   if (e.target.parentElement.classList.contains('delete-item')) { // makes sure we are selecting the right element on the event
     if (confirm('Are You Sure?')) { // pops a message, true if hit ok
       e.target.parentElement.parentElement.remove(); // remove parent of parent which is the li iteself li>a>i  
+
+      // Remove from Local Storage , we are removing the li which is e.target.parentElement.parentElement (as above) and that is what we pass in to our remove from local storage function
+      removeTaskFromLocalStorage(e.target.parentElement.parentElement);
     } 
   }
 }
+
+function removeTaskFromLocalStorage(li) {
+  
+}
+
 
 // CLEAR TASKS FUNCTION
 
