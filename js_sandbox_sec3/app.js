@@ -53,8 +53,18 @@ delItem.addEventListener('click', deleteItem); <--- would only register the 1st 
 document.addEventListener('click', deleteItem);
 
 function deleteItem(e) {
+  /*
   if (e.target.parentElement.className === 'delete-item secondary-content') { //className looks for the whole class string, have to match exactly or wont work
-    console.log('delete-item');
-    
+    console.log('delete-item'); 
+   } 
+
+   this works but not scalable or efficient cuz if we add a new class name, then it breaks all the selectors
+   */
+
+
+   // better way of doing the same thing. 
+  if (e.target.parentElement.classList.contains('delete-item')) {
+    console.log('delete-item'); 
+    e.target.parentElement.parentElement.remove(); // target = icon, parent = a, gparent=li, remove()
   }
 }
