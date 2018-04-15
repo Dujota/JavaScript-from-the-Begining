@@ -26,10 +26,39 @@ function calculateResults(e) {
     monthlyPayment.value = monthly.toFixed(2); // sets the # have a fixed # of decimals
     totalPayment.value = (monthly * calculatedPayments).toFixed(2);
     totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
-  } else {
-    console.log('Please check your numbers');
+  } else { // condition if inputs were wrong/missing
+    showError('Please check your numbers'); // we will use this function to create a div that will display the error messages on a page
     
   }
  e.preventDefault();
+}
+
+// Show Error Function
+
+function showError(error) {
+  //create a div
+  const errorDiv = document.createElement('div');
+
+  // Get elements - card (parent div) and heading 
+  const card = document.querySelector('.card');
+  const heading = document.querySelector('.heading');
+
+  // Add class to new div
+  errorDiv.className = 'alert alert-danger'; // bootstrap class
+
+  // Create text node and append to div
+  errorDiv.appendChild(document.createTextNode(error)); // we will append he error messae from the callback in the if statement
+
+  // Insert error above the heading, we do that by grabbing the parent(card) and call insertBefore();
+  // it works by calling insertBefore() on a parent, and you pass in (element to put in, element to insert before from) 
+  card.insertBefore(errorDiv, heading);
+
+  // Clear error after 3 seconds 
+  setTimeout(clearError, 3000); // takes two parameters, one is function and next is time in miliseconds
+}
+
+// Clear Error
+function clearError() {
+  document.querySelector('.alert').remove();
 }
 
