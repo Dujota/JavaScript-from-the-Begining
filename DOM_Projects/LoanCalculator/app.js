@@ -1,8 +1,12 @@
 // Listen for submit
 
-document.querySelector('#loan-form').addEventListener('submit', calculateResults);
+document.querySelector('#loan-form').addEventListener('submit', function (e) {
+  e.preventDefault(); // removed the callback and commented the prevent default in calculate results, we will now prevent the submit on the event listener, also replaced the callback with regular function
 
-function calculateResults(e) {
+
+});
+
+function calculateResults() {
   console.log('Calculting....'); // test out the stop default
   
   // UI Variables
@@ -30,7 +34,7 @@ function calculateResults(e) {
     showError('Please check your numbers'); // we will use this function to create a div that will display the error messages on a page
     
   }
- e.preventDefault();
+//  e.preventDefault();
 }
 
 // Show Error Function
