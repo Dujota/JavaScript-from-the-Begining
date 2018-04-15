@@ -1,6 +1,15 @@
 // Listen for submit
 
 document.querySelector('#loan-form').addEventListener('submit', function (e) {
+  // Hide Results
+  document.getElementById('results').style.display = 'none'; // set up so that when the results finally show and they hit calculate again, we want to hide the old results
+  
+  //Show Loader
+  document.getElementById('loading').style.display = 'block';
+
+  // Display Results after 2 seconds
+  setTimeout(calculateResults, 2000); // run the calculate results function after 2 seconds, but we have to set the results style to display = block in the callback function
+
   e.preventDefault(); // removed the callback and commented the prevent default in calculate results, we will now prevent the submit on the event listener, also replaced the callback with regular function
 
 
@@ -30,6 +39,13 @@ function calculateResults() {
     monthlyPayment.value = monthly.toFixed(2); // sets the # have a fixed # of decimals
     totalPayment.value = (monthly * calculatedPayments).toFixed(2);
     totalInterest.value = ((monthly * calculatedPayments) - principal).toFixed(2);
+
+    // Show results
+    document.getElementById('results').style.display = 'block';
+  
+    //Hide the Loader
+    document.getElementById('loading').style.display = 'none';
+
   } else { // condition if inputs were wrong/missing
     showError('Please check your numbers'); // we will use this function to create a div that will display the error messages on a page
     
@@ -40,6 +56,12 @@ function calculateResults() {
 // Show Error Function
 
 function showError(error) {
+  // Hide Results
+  document.getElementById('results').style.display = 'none';
+
+  //Hide the Loader
+  document.getElementById('loading').style.display = 'none';
+
   //create a div
   const errorDiv = document.createElement('div');
 
