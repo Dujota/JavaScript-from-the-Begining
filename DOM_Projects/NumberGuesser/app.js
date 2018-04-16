@@ -32,12 +32,18 @@ minNum.textContent = min;
 maxNum.textContent = max
 
 // Event Listener for Guess
-guessBtn.addEventListener('click', function (e) {
+guessBtn.addEventListener('click', function () {
   let guess = parseInt(guessIpnut.value); // we need to convert to in since the value is coming as a string
 
   // Validate
-  if (guess === NaN || guess < min || guess > max) { // check if it is not a number or less than or greater than min/max
-    setMessage(`Please enter a number between ${min} and ${max}`) // if not the correct # display this
+  if (isNaN(guess) || guess < min || guess > max) { // check if it is not a number or less than or greater than min/max
+    setMessage(`Please enter a number between ${min} and ${max}`, 'red') // if not the correct # display this msg, we also pass in the color that we need to the callback function as it will accept a string to set the color of the msg
   }
   console.log(guess);
 });
+
+// Set Message Callback
+function setMessage(msg, color) { // accepts a string for the message and a color for style 
+  message.style.color = color
+  message.textContent = msg
+}
