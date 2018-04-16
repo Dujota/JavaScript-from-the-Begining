@@ -30,6 +30,13 @@ const game = document.querySelector('#game'), // the whole container
 
 minNum.textContent = min;
 maxNum.textContent = max
+// Play again Event Listener -- since we appended a class with JS after the game was over, we need to use event delagation by putting the event listener on the parent and looking for the event target. 
+game.addEventListener('mousedown', function (e) { // if we use 'click' then the page will reload as soon as button changes to play again, this is because as soon as we click submit the play-again is already there, therefore it will reload instantly 
+  if(e.target.className === 'play-again') {
+    window.location.reload();
+  }
+});
+
 
 // Event Listener for Guess
 guessBtn.addEventListener('click', function () {
@@ -87,8 +94,12 @@ function gameOver(won, msg) {
    // Change border color
    guessIpnut.style.borderColor = color;
 
-   // Set message to won
+   // Set message to won/lost
    setMessage(msg, color )
+
+   // Play again? 
+   guessBtn.value = 'Play Again?'
+   guessBtn.className += 'play-again' // we += in case ther eis a class already, we dont lose it. We add a new class so we can add a new event listner to that play again button
 }
 
 // Set Message Callback
