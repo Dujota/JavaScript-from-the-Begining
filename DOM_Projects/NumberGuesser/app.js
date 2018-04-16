@@ -39,6 +39,22 @@ guessBtn.addEventListener('click', function () {
   if (isNaN(guess) || guess < min || guess > max) { // check if it is not a number or less than or greater than min/max
     setMessage(`Please enter a number between ${min} and ${max}`, 'red') // if not the correct # display this msg, we also pass in the color that we need to the callback function as it will accept a string to set the color of the msg
   }
+
+  // Check if won
+  if (guess === winningNum) {
+    // Disable Input
+    guessIpnut.disabled = true;
+
+    // Change border color
+    guessIpnut.style.borderColor = 'green';
+
+    // Set message to won
+    setMessage(`${winningNum} is Correct! You Win!!!`, 'green' )
+
+  } else {
+
+  }
+
   console.log(guess);
 });
 
