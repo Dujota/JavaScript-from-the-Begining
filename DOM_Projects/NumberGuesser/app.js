@@ -15,7 +15,7 @@ GAME FUNCTION/RULES:
 
 let min = 1, // shorthand to declare multiple let variables
     max = 10,
-    winningNum = 2,
+    winningNum = getRandomNumber(min, max),
     guessesLeft = 3;
 
 // UI Elements    
@@ -100,6 +100,13 @@ function gameOver(won, msg) {
    // Play again? 
    guessBtn.value = 'Play Again?'
    guessBtn.className += 'play-again' // we += in case ther eis a class already, we dont lose it. We add a new class so we can add a new event listner to that play again button
+}
+
+// Get Winning Number
+
+function getRandomNumber(min, max) {
+  return Math.floor(Math.random()*(max-min + 1)+min); // we need a random # so we call Math.random() multiply by the range of our variables max-min + 1 = 10 and then we add back the min and wrap it all in a math.floor which rounds down. we do this because the min can be any value so we want to make sure it will always be the minimum value
+  
 }
 
 // Set Message Callback
