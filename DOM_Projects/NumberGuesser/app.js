@@ -19,15 +19,25 @@ let min = 1, // shorthand to declare multiple let variables
     guessesLeft = 3;
 
 // UI Elements    
-const game = document.querySelector('#game'),
-      minNum = document.querySelector('.min-num'),
-      maxNum = document.querySelector('.max-num'),
-      guessBtn = document.querySelector('#guess-btn')
-      guessIpnut = document.querySelector('#guess-input')
-      message = document.querySelector('.message');
+const game = document.querySelector('#game'), // the whole container
+      minNum = document.querySelector('.min-num'), // 1st span
+      maxNum = document.querySelector('.max-num'), // 2nd span
+      guessBtn = document.querySelector('#guess-btn') // submit button
+      guessIpnut = document.querySelector('#guess-input') // the # user types
+      message = document.querySelector('.message'); // where we will append any message from our game
 
 // Assign UI Min and Max
 
 minNum.textContent = min;
 maxNum.textContent = max
 
+// Event Listener for Guess
+guessBtn.addEventListener('click', function (e) {
+  let guess = parseInt(guessIpnut.value); // we need to convert to in since the value is coming as a string
+
+  // Validate
+  if (guess === NaN || guess < min || guess > max) { // check if it is not a number or less than or greater than min/max
+    setMessage(`Please enter a number between ${min} and ${max}`) // if not the correct # display this
+  }
+  console.log(guess);
+});
