@@ -20,4 +20,9 @@ function Person(firstName, LastName, dob) {
   }
 }
 
+const john = new Person('John', 'Smith', '812-1990');
+const mary = new Person('Mary', 'Johnson', 'March 20 1978');
+
+console.log(mary);
+
 
