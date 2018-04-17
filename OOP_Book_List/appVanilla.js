@@ -11,7 +11,23 @@ function UI () {}  // all logic will be in prototype
 // UI Prototype
 // Add book to list
 UI.prototype.addBookToList = function (book) {
-  console.log(book);
+  // Get the list
+  const list = document.getElementById('book-list');
+
+  // Create tr Element
+  const row = document.createElement('tr');
+
+  // Instert Columns -- we can pass in the object info since we are passing the object itself into the function, last row and then we append it to the list itself as a child
+  row.innerHTML = `
+  <td>${book.title}</td>
+  <td>${book.author}</td>
+  <td>${book.isbn}</td>
+  <td><a href="#" class="delete">X</a></td> 
+  `;
+
+  // Append to the list
+  list.appendChild(row);
+  
   
 }
 
@@ -28,7 +44,6 @@ document.getElementById('book-form').addEventListener('submit', function (e) { /
 
   // Instantiate the UI Object
   const ui = new UI();
-  console.log(ui);
   
   // Add Book to List
   ui.addBookToList(book); // will use the ui prototype to append the book to the list
