@@ -26,11 +26,14 @@ UI.prototype.addBookToList = function (book) {
   `;
 
   // Append to the list
-  list.appendChild(row);
-  
-  
+  list.appendChild(row); 
 }
 
+UI.prototype.clearFields = function () {
+  document.getElementById('title').value = '';
+  document.getElementById('author').value = '';
+  document.getElementById('isbn').value = '';
+}
 
 // Event Listener
 document.getElementById('book-form').addEventListener('submit', function (e) { // listing for delegation to listen for the submit event because we will append items to the DOM
@@ -48,6 +51,8 @@ document.getElementById('book-form').addEventListener('submit', function (e) { /
   // Add Book to List
   ui.addBookToList(book); // will use the ui prototype to append the book to the list
 
-  
+  // Clear fields 
+  ui.clearFields();
+
   e.preventDefault();
 });
