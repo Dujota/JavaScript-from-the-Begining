@@ -21,4 +21,22 @@ class Customer extends Person {
     this.phone = phone;
     this.membership = membership;
   }
+
+  // Class Method
+  static getMembershipCost (){
+    return 500;
+  }
 }
+
+const john = new Customer('John', 'Doe', '555-555-5555', 'Standard')
+
+console.log(john);  // proto Person, but using the Customer constructor
+
+// since we extended Person we can use the proto methods
+
+console.log(john.greeting());
+
+console.log(Customer.getMembershipCost()); // we can use Person methods on Customer, but not the other way around
+
+
+
