@@ -61,15 +61,31 @@ class UI{
 // Local Storage Class
 class Storage {
   static getBooks () {
-
+    let books;
+    // Pull records, standard syntax MEMORIZE THIS
+    if (localStorage.getItem('books') === null) {
+      books = [];
+    } else{
+      books = JSON.parse(localStorage.getItem('books'));
+    }
+    return books;
   }
   
   static displayBooks() {
+    const books = Storage.getBooks();
 
+    books.forEach(function(book) {
+      const ui = new UI
+      // Add Book to UI
+      ui.addBookToList(book);
+    });
   }
 
-  static addBook () {
-
+  static addBook (book) {
+    const books = Storage.getBooks();
+    books.push(book); // push new book to the array
+    // Save the new array with new book as 'books' key, 
+    localStorage.setItem('books', JSON.stringify(books));
   }
 
   static removeBook (){
@@ -79,6 +95,10 @@ class Storage {
 
 
 //--------------------------------------Event Delagation-----------------------------------------
+
+//DOM Load Event - for loading the local storage items to the UI on load 
+document.addEventListener('DOMContentLoaded', Storage.displayBooks);
+
 // Event Listener for add Book 
 document.getElementById('book-form').addEventListener('submit', function (e) {
   // Get form Values
@@ -99,7 +119,10 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
     ui.showAlert('Please fill in all fields', 'error') 
   } else {
     // Add Book to List
-    ui.addBookToList(book); 
+    ui.addBookToList(book);
+    
+    // Save to LocalStorage
+    Storage.addBook(book)
 
     // Show Alert
     ui.showAlert("Book Added!", 'success')
@@ -114,6 +137,8 @@ document.getElementById('book-form').addEventListener('submit', function (e) {
 document.getElementById('book-list').addEventListener('click', function (e) {
   const ui = new UI();
   ui.deleteBook(e.target);
+
+  // Remove from Local Storage
 
   // Show message
   ui.showAlert('Book Removed!', 'success')
