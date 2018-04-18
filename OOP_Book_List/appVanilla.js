@@ -79,6 +79,7 @@ document.getElementById('book-form').addEventListener('submit', function (e) { /
   // Instantiate the UI Object
   const ui = new UI();
 
+
   // Validate 
   if (title === '' || author == '' || isbn === '') { // check if any field is empty
     // Error alert
@@ -88,7 +89,7 @@ document.getElementById('book-form').addEventListener('submit', function (e) { /
     ui.addBookToList(book); // will use the ui prototype to append the book to the list
 
     // Show Alert
-    ui.showAlert("Success!", 'success')
+    ui.showAlert("Book Added!", 'success')
 
     // Clear form fields after submit 
     ui.clearFields();
