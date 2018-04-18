@@ -89,8 +89,15 @@ class Storage {
   }
 
   static removeBook (isbn){
-    console.log(isbn);
-    
+    const books = Storage.getBooks();
+
+    books.forEach(function(book, index) {
+     if (book.isbn === isbn) {
+       books.splice(index, 1) //removes 1 item starting at the index specified
+     }
+    });
+
+    localStorage.setItem('books', JSON.stringify(books))
   }
 }
 
