@@ -8,7 +8,8 @@ function Book(title, author, isbn) {
 // UI Constructor - set of prototype methods to add book to list, delete book, show alert, anything to do with the UI
 function UI () {}  // all logic will be in prototype
 
-// UI Prototype
+// UI Prototypes
+// --------------------------------------------------------
 // Add book to list
 UI.prototype.addBookToList = function (book) {
   // Get the list
@@ -30,7 +31,6 @@ UI.prototype.addBookToList = function (book) {
 }
 
 // Show Alert
-
 UI.prototype.showAlert = function (message, className){
   // Create div
   const div = document.createElement('div'); 
@@ -51,6 +51,13 @@ UI.prototype.showAlert = function (message, className){
   }, 3000) // timeout function takes two parameters, 1 is function, 2 is time before it executes in milliseconds
 }
 
+// Delete Book
+UI.prototype.deleteBook = function (target) {
+  if (target.className === 'delete') {
+    target.parentElement.parentElement.remove();
+  }
+}
+
 // Clear fields after submit function
 UI.prototype.clearFields = function () {
   document.getElementById('title').value = '';
@@ -58,7 +65,8 @@ UI.prototype.clearFields = function () {
   document.getElementById('isbn').value = '';
 }
 
-// Event Listener
+//------------------------------------------------------------------
+// Event Listener for add Book
 document.getElementById('book-form').addEventListener('submit', function (e) { // listing for delegation to listen for the submit event because we will append items to the DOM
   // Get form Values
   const title = document.getElementById('title').value,
@@ -84,8 +92,18 @@ document.getElementById('book-form').addEventListener('submit', function (e) { /
 
     // Clear form fields after submit 
     ui.clearFields();
-  }
-  
+  } 
+  e.preventDefault();
+});
+
+// Event Listener for Delete
+document.getElementById('book-list').addEventListener('click', function (e) {
+  const ui = new UI();
+  ui.deleteBook(e.target);
+
+  // Show message
+  ui.showAlert('Book Removed!', 'success')
+
   e.preventDefault();
 });
 
