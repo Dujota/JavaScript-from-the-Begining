@@ -88,8 +88,9 @@ class Storage {
     localStorage.setItem('books', JSON.stringify(books));
   }
 
-  static removeBook (){
-
+  static removeBook (isbn){
+    console.log(isbn);
+    
   }
 }
 
@@ -138,7 +139,9 @@ document.getElementById('book-list').addEventListener('click', function (e) {
   const ui = new UI();
   ui.deleteBook(e.target);
 
-  // Remove from Local Storage
+  // Remove from Local Storage, need ISBN # for unique identifier
+  // DOM MAGIC!!! -- we take the target(a tag), go one parent above and then call the textContent of the previous sibling to get the ISBN # 
+  Storage.removeBook(e.target.parentElement.previousElementSibling.textContent) 
 
   // Show message
   ui.showAlert('Book Removed!', 'success')
