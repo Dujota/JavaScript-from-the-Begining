@@ -58,6 +58,25 @@ class UI{
   }
 }
 
+// Local Storage Class
+class Storage {
+  static getBooks () {
+
+  }
+  
+  static displayBooks() {
+
+  }
+
+  static addBook () {
+
+  }
+
+  static removeBook (){
+
+  }
+}
+
 
 //--------------------------------------Event Delagation-----------------------------------------
 // Event Listener for add Book 
@@ -101,6 +120,3 @@ document.getElementById('book-list').addEventListener('click', function (e) {
 
   e.preventDefault();
 });
-
-
-
