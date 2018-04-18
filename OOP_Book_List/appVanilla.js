@@ -29,6 +29,7 @@ UI.prototype.addBookToList = function (book) {
   list.appendChild(row); 
 }
 
+// Clear fields after submit function
 UI.prototype.clearFields = function () {
   document.getElementById('title').value = '';
   document.getElementById('author').value = '';
@@ -47,12 +48,21 @@ document.getElementById('book-form').addEventListener('submit', function (e) { /
 
   // Instantiate the UI Object
   const ui = new UI();
-  
-  // Add Book to List
-  ui.addBookToList(book); // will use the ui prototype to append the book to the list
 
-  // Clear fields 
-  ui.clearFields();
+  // Validate 
+  if (title === '' || author == '' || isbn === '') { // check if any field is empty
+    // Error alert
+    UI.showAlert('Please fill in all fields', )
+  } else { // go ahead and add the book
+    // Add Book to List
+    ui.addBookToList(book); // will use the ui prototype to append the book to the list
+
+    // Clear form fields after submit 
+    ui.clearFields();
+  }
+  
+ 
 
   e.preventDefault();
 });
+
