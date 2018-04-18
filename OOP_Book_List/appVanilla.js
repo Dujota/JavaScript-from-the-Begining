@@ -29,6 +29,28 @@ UI.prototype.addBookToList = function (book) {
   list.appendChild(row); 
 }
 
+// Show Alert
+
+UI.prototype.showAlert = function (message, className){
+  // Create div
+  const div = document.createElement('div'); 
+  // Add a classes
+  div.className = `alert ${className}`;
+  // Add Text
+  div.appendChild(document.createTextNode(message));
+  // Get Parent
+  const container = document.querySelector('.container');
+  const form = document.querySelector('#book-form');
+
+  // Insert Alert
+  container.insertBefore(div, form) // takes two parameters, 1st what we want to instert, second where we want to insert before
+  
+  // Timeout after 3 seconds
+  setTimeout(function () {
+    document.querySelector('.alert').remove();
+  }, 3000) // timeout function takes two parameters, 1 is function, 2 is time before it executes in milliseconds
+}
+
 // Clear fields after submit function
 UI.prototype.clearFields = function () {
   document.getElementById('title').value = '';
@@ -52,17 +74,18 @@ document.getElementById('book-form').addEventListener('submit', function (e) { /
   // Validate 
   if (title === '' || author == '' || isbn === '') { // check if any field is empty
     // Error alert
-    UI.showAlert('Please fill in all fields', )
+    ui.showAlert('Please fill in all fields', 'error') // mehtod takes a msg and the class we append
   } else { // go ahead and add the book
     // Add Book to List
     ui.addBookToList(book); // will use the ui prototype to append the book to the list
+
+    // Show Alert
+    ui.showAlert("Success!", 'success')
 
     // Clear form fields after submit 
     ui.clearFields();
   }
   
- 
-
   e.preventDefault();
 });
 
