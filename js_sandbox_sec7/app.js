@@ -9,7 +9,10 @@ function loadData() {
   console.log('ReadyState:: ', xhr.readyState);
 
   // Optional - Used for Spinners/Loaders, can check if data is being loaded/fetched and display somehting else in the meantime
-  
+  xhr.onprogress = function () {
+    console.log('ReadyState:: ', xhr.readyState);
+  }
+
   
 
   // Load now
@@ -17,7 +20,12 @@ function loadData() {
     console.log('ReadyState:: ', xhr.readyState);
     if (this.status === 200) {
       console.log(this.responseText);
+      document.getElementById('output').innerHTML = `<h1> ${this.responseText}</h1>`;
     } 
+  }
+
+  xhr.onerror = function () {
+    console.log('Request Error occurred');
   }
 
   // Send the data
