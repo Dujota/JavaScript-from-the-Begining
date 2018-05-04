@@ -1,3 +1,7 @@
+// Can validate JSON at JSONLint.comn
+
+
 {
-  
+  "id": 1,
+  "name": "John Doe"
 }
