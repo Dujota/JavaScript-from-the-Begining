@@ -17,6 +17,22 @@ function getJokes(e) {
     if (this.status === 200) {
       const response = JSON.parse(this.responseText);
       console.log(response);
+
+      let output = '';
+
+      if (response.type === 'success') { // always check that we got a sucess after json conversion
+        
+        response.value.forEach(function(joke) {
+          output += `
+          <li> ${joke.joke} </li>
+          `
+        });
+      } else {
+        output += `<li> Something Went wrong with the API  </li>`
+      }
+
+      document.querySelector('.jokes').innerHTML = output;
+      
       
     }
   }
