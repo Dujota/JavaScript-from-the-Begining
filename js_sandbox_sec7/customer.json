@@ -3,5 +3,7 @@
 
 {
   "id": 1,
-  "name": "John Doe"
+  "name": "John Doe",
+  "company": "123 Designs",
+  "phone": "123-456-7890"
 }
