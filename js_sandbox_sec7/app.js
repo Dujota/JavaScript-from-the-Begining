@@ -6,11 +6,31 @@ function loadData() {
 
   // Open - specify the type of request and the object we want to do it on
   xhr.open('GET', 'data.txt', true); // (reuqst type, file/url, async?)
+  console.log('ReadyState:: ', xhr.readyState);
+
+  // Optional - Used for Spinners/Loaders, can check if data is being loaded/fetched and display somehting else in the meantime
+  
+  
 
   // Load now
-  xhr.onload = function () {
-    
+  xhr.onload = function () { // at this point we are at step 4
+    console.log('ReadyState:: ', xhr.readyState);
+    if (this.status === 200) {
+      console.log(this.responseText);
+    } 
   }
+
+  // Send the data
+  xhr.send();
+
+  /*
+    readyState Values
+    0: request not initialized
+    1: server connection established
+    2: request received
+    3: processing request
+    4: request finished and response is ready
+  */
 
   /*
   HTTP STATUSES
