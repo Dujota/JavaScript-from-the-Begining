@@ -28,4 +28,9 @@ LIBRARIES AND OTHER METHODS
 - jQuery - not recommended just for Ajax
 - Node HTTP - for Node.js, really good if using that for server side
 
+
+
+
+
+
 */
