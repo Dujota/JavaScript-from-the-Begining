@@ -1,0 +1,19 @@
+[{
+    "id": 1,
+    "name": "John Doe",
+    "company": "123 Designs",
+    "phone": "123-456-7890"
+  },
+  {
+    "id": 2,
+    "name": "Dave Smith",
+    "company": "Acme Productions",
+    "phone": "324-644-5346"
+  },
+  {
+    "id": 3,
+    "name": "Steven Perron",
+    "company": "Traversy Media",
+    "phone": "645-645-2323"
+  }
+]
