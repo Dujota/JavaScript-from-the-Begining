@@ -10,12 +10,14 @@ easyHTTP.prototype.get = function (url) {
   this.http.open('GET', url, true);
 
   // On Load
+  let self = this; // a fix for the problem listed below which will capture the scope of 'this' and we can use that scope inside the function. 
   this.http.onload = function () {
-    if (this.http.status === 200) {
-      console.log(this.http.responeText);      
+    if (self.http.status === 200) { // this.http.status is undefined here inside the funciton cuz 'this' scopes to the function itself not the parent, ES6 arrow function fixes this issue
+      console.log(self.http.responseText);
+      
     }
   }
-  
+
   // Send
   this.http.send();
 }
