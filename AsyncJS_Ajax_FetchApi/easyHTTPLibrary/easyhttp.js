@@ -1,19 +1,22 @@
 function easyHTTP() {
-  this.http = XMLHttpRequest();
+  this.http = new XMLHttpRequest();
 }
 
 // Prototype Methods for this class we are constructing
 
 // Make an HTTP GET Request
 easyHTTP.prototype.get = function (url) {
+  // Open
   this.http.open('GET', url, true);
 
+  // On Load
   this.http.onload = function () {
     if (this.http.status === 200) {
       console.log(this.http.responeText);      
     }
   }
-
+  
+  // Send
   this.http.send();
 }
 
