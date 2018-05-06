@@ -32,6 +32,5 @@ http.post('https://jsonplaceholder.typicode.com/posts', data, function (error, p
     console.log(error);
   } else {
     console.log(post);
-    
   }
 })
