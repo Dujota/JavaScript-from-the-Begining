@@ -33,4 +33,17 @@ http.post('https://jsonplaceholder.typicode.com/posts', data, function (error, p
   } else {
     console.log(post);
   }
-})
+});
+
+
+// UPDATE POST
+
+http.put('https://jsonplaceholder.typicode.com/posts/1', data, function (error, post) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(post);
+    
+  }
+});
+
