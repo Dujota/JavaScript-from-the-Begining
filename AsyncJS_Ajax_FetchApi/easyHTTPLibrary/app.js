@@ -9,3 +9,29 @@ http.get('https://jsonplaceholder.typicode.com/posts', function (error, posts) {
     console.log(posts); 
   }
 });   // here we pass in a callback to get the posts while the page is loading so that we dont get undefined, we need this inside the library prortotype function so we can execute a callback when passing in parameters 
+
+// GET A SINGLE POST
+http.get('https://jsonplaceholder.typicode.com/posts/1', function (error, post) {
+  if (error) {
+    console.log(error);
+    
+  } else {
+    console.log(post); 
+  }
+});
+
+// CREATE THE DATA 
+const data = {
+  title: 'Custom Post',
+  body: 'this is a custom post'
+};
+
+// CREATE POST
+http.post('https://jsonplaceholder.typicode.com/posts', data, function (error, post) {
+  if (error) {
+    console.log(error);
+  } else {
+    console.log(post);
+    
+  }
+})

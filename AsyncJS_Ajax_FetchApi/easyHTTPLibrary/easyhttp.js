@@ -23,18 +23,26 @@ easyHTTP.prototype.get = function (url, callback) { // we need a callback to ret
   this.http.send();
 }
 
-// Make an HTTP PUT Request
-easyHTTP.prototype.post = function (url, data, callback) {
+// Make an HTTP POST Request
+
+easyHTTP.prototype.post = function (url, data, callback) { // takes the data that we need to send out 
   // OPEN
   this.http.open('POST', url, true);
   this.http.setRequestHeader('Content-type', 'application/json'); // we also need to set the content type, which is done in the http header. we essentially need to set the type of data we will be working with
 
+  let self = this; // bind self scope
+
+  // LOAD
+  this.http.onload = function () {
+      callback(null, self.http.responseText)
+  }
+
 
   // SEND, but we are sending json, so we need to turn that into a string so the api can accept it, we do this with the stringify mehtod, like sending somehting to the local storage
-  this.send(JSON.stringify(data));
+  this.http.send(JSON.stringify(data));
 }
 
-// Make an HTTP POST Request
+// Make an HTTP PUT Request
 
 // Make an HTTP DELETE Request
 
