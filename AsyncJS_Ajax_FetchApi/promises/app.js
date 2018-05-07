@@ -11,10 +11,7 @@ function createPost(post) {
       posts.push(post);
       resolve(); // invoke the promise where the callback would have been 
     }, 2000);
-    
   });
-
-
 }
 
 function getPosts() {
