@@ -25,22 +25,37 @@ class EasyHTTP {
 
   // Make an HTTP Post Request
 
+  // for the post we need to add an object with some identifiers for the data and what we are actually trying to do, similar to how xhr needs to define the header, the object has a special format that can be obseved below. so post takes two parameters url & header object
   post(url, data){
     return new Promise((resolve, reject) =>{
-      // for the post we need to add an object with some identifiers for the data and what we are actually trying to do, similar to how xhr needs to define the header, the object has a special format that can be obseved below. so post takes two parameters url & header object
-      fetch(url), {
+      fetch(url, {
         method: 'POST',
         headers: {
-          'Conent-type': 'application/json'
+          'Content-type': 'application/json'
         },
         body: JSON.stringify(data)
-      }
+      })
       .then(response => response.json())
       .then(data => resolve(data))
       .catch(error => reject(error));
     });
   }
 
+  // Make an HTTP PUT Request
+  put(url, data) {
+    return new Promise( (resolve, reject) => {
+      fetch(url, {
+        method: 'PUT',
+        headers: {
+          'Conent-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      })
+      .then(response => response.json())
+      .then(data => resolve(data))
+      .catch(error => reject(error))
+    });
+  }
 }
 
 
