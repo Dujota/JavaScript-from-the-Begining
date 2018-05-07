@@ -56,6 +56,20 @@ class EasyHTTP {
       .catch(error => reject(error))
     });
   }
+
+  delete(url) {
+    return new Promise((resolve, reject) => {
+      fetch(url, {
+        mehtod: 'DELETE',
+        headers: {
+          'Content-type': 'application/json'
+        } // removed the body since we are deleting
+      })
+      .then(response => response.json())
+      .then(() => resolve('Resource deleted ... ')) // we dont send back data, instead we send back a string message
+      .catch(error => reject(error))
+    });
+  }
 }
 
 

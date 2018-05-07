@@ -13,12 +13,17 @@ const data = {
   email: 'jdoe@gmail.com'
 }
 
-// CREATE POST
+// CREATE USER -- will show new user id # 11
 http.post('https://jsonplaceholder.typicode.com/users', data)
   .then(data => console.log(data))
   .catch(error => console.log(error));
 
-// PUT
+// PUT -- shows user id 2 was updated with post data
 http.put('https://jsonplaceholder.typicode.com/users/2', data)
   .then(data => console.log(data))
   .catch(error => console.log(error));
+
+// Delete USER
+http.delete('https://jsonplaceholder.typicode.com/users/2')
+  .then(data => console.log(data))
+  .catch(error => console.log(error));  
