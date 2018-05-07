@@ -43,11 +43,11 @@ class EasyHTTP {
 
   // Make an HTTP PUT Request
   put(url, data) {
-    return new Promise( (resolve, reject) => {
+    return new Promise((resolve, reject) => {
       fetch(url, {
         method: 'PUT',
         headers: {
-          'Conent-Type': 'application/json'
+          'Content-type': 'application/json'
         },
         body: JSON.stringify(data)
       })
