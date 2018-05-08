@@ -2,7 +2,7 @@
  EasyHTTP Library
  Library for making HTTP Requests
 
- @version 2.0.0 
+ @version 3.0.0 
  @author Dujota
  @license MIT
 **/
@@ -10,17 +10,11 @@
 class EasyHTTP {
   // Make an HTTP GET Request
 
-  // if we dont wrap the whole fetch in a promise, if we save the response in a variable and try to log it, we will get undefined. 
-  get(url){
-    return new Promise((resolve, reject) => { // promise will always take a resolve and reject
-      fetch(url)
-      .then(response => response.json())
-      .then(data => {
-        resolve(data)
-      })
-      .catch(error => {reject(error)});
-    });
-    
+ 
+  async get(url){
+    const response = await fetch('https://jsonplaceholder.typicode.com/users')
+    const resData = await response.json();
+    return resData;
   }
 
   // Make an HTTP Post Request
