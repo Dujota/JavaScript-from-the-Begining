@@ -41,8 +41,9 @@ class UI {
 
   // Show alert Message
   showAlert(message, className) {
-    //clear any remaining alerts
+    //clear any remaining alerts before we start
     this.clearAlert();
+
     // Create a Div for the alert
     const div = document.createElement('div');
     // Add class to div
@@ -56,6 +57,11 @@ class UI {
     const search = document.querySelector('.search');
     // Insert Alert
     container.insertBefore(div, search); // div is what we instert and search is the element we insert before
+
+    // Timeout after 3 seconds 
+    setTimeout(() => {
+      this.clearAlert();
+    }, 3000);
   }
 
   // Clear alert message
