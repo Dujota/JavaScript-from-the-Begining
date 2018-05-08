@@ -25,10 +25,9 @@ searchUser.addEventListener('keyup', (e) => {
         
         ui.showProfile(data.profile);
       }
-      
-    })
+    });
     
-  } else {
-    // Clear the profile
+  } else { // if the input field is empty then clear the UI
+    ui.clearProfile();
   } 
 });
