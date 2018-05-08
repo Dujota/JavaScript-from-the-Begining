@@ -60,11 +60,10 @@ class UI {
 
   // Clear alert message
   clearAlert(){
-    const currentAlert = document.querySelector('.alert');
-    if (currentAlert) {
+    // save the current alert
+    const currentAlert = document.querySelector('.alert'); 
+    if (currentAlert) { // if there is one, then we will clear it
       currentAlert.remove();
-    } else {
-      
     }
   }
 }
