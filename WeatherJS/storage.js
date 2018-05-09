@@ -6,7 +6,7 @@ class Storage {
     this.defaultState = 'FL';
   }
 
-  getLocationData (){
+  getLocationData () {
     if (localStorage.getItem('city') === null) {
       this.city = this.defaultCity;
     } else {
@@ -17,6 +17,11 @@ class Storage {
       this.state = this.defaultState;
     } else {
       this.state = localStorage.getItem('state');
+    }
+
+    return {
+      city: this.city,
+      state: this.state
     }
   }
 

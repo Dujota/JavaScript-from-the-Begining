@@ -1,12 +1,16 @@
-// INIT Weather Object
-const weather = new Weather('Boston', 'MA');
-
 // INIT UI Object
 const ui = new UI();
 
+// INIT STORAGE Object
+const storage = new Storage();
 
-// EVENT LISTENERS
+// Get Stored location Data
+const weatherLocation = storage.getLocationData();
 
+// INIT Weather Object
+const weather = new Weather(weatherLocation.city, weatherLocation.state);
+
+// EVENT LISTENERS 
 // Get Weather when DOM Loaded good practice
 document.addEventListener('DOMContentLoaded', getWeather);
 
@@ -15,7 +19,10 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
   const city = document.getElementById('city').value;
   const state = document.getElementById('state').value;
 
+  // Change the location
   weather.changeLocation(city, state);
+  //Set the location in local storage
+  storage.setLocationData(city, state);
 
   // Get & Display Weather with new Location 
   getWeather();
@@ -25,7 +32,7 @@ document.getElementById('w-change-btn').addEventListener('click', (e) => {
 });
 
 
-
+// GETS THE WEATHER UPON LOADING
 // Moved class function inside anther function so i can call it when the dom is loaded 
 function getWeather (arguments) {
   weather.getWeather()
@@ -34,5 +41,4 @@ function getWeather (arguments) {
     ui.paint(results);
   })
   .catch(error => console.log(error));
-
 }
