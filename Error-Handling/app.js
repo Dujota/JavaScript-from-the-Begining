@@ -51,9 +51,10 @@ const user = {email: 'someEmail@gmail.com'};
 // check if the user has a name 
 try {
   if (!user.name) {
-    throw 'User has no name'; // the THROW KEYWORD SENDS THE ERROR!!!!
+    // throw 'User has no name'; // the THROW KEYWORD SENDS THE ERROR!!!!
+    throw new SyntaxError('User has no name!!!') // we can call on any error constructor to create a specific type of error which will also tell jus the line that error is thrown. 
   }  
 } catch (error) {
   console.log(error);
-  
+  console.log(`User Error logged in template string with customer message : ${error.message}`);
 }
