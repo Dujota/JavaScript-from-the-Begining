@@ -1,6 +1,9 @@
 // INIT Weather Object
 const weather = new Weather('Boston', 'MA');
 
+// INIT UI Object
+const ui = new UI();
+
 // Get Weather when DOM Loaded good practice
 document.addEventListener('DOMContentLoaded', getWeather);
 
@@ -11,7 +14,8 @@ document.addEventListener('DOMContentLoaded', getWeather);
 function getWeather (arguments) {
   weather.getWeather()
   .then(results => {
-    console.log(results);
+    // console.log(results); returns the object
+    ui.paint(results);
   })
   .catch(error => console.log(error));
 
