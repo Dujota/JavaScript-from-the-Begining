@@ -36,9 +36,25 @@ re = /hel{2,}o/i; // Must occur AT LEAST {m} times
 // we wrap a group of an expression in () to make sure that it looks for that specific evaluated string, kind of like BEDMAS
 re = /^([0-9]x){3}$/i; // ^ and $ to make sure that it only looks for 3x3x3x , we use ^ and $ many times
 
+// ShortHand Character Classes
+
+re = /\w/i; // Word Character - alphanumeric or _  -- goes left to right and finds the first word character
+re = /\w+/; // + = one or more characters, so a !?() all wont match
+re = /\W/; // Non-Word characters so !()?%#$ etc. 
+re = /\d/; // Matches any digit
+re = /\d+/; // Matches any digit 0 or more times
+re = /\D/; // Match any non-digit (anything that is not 0-9)
+re = /\s/; // matches a whitespace character (space or a tab) will not work on undefined/null
+re = /\S/; // matches non-whitespace char
+re = /Hell\b/i; // Word Boundary - used to isolate the word instelf not just somehting that has a piece that matches
+
+
+// Assertions - like conditionals
+
+
 
 // String to Match
-const str = '3x3x3x';
+const str = 'Hello, welcome to Hell';
 
 // Log results
 const result = re.exec(str);
