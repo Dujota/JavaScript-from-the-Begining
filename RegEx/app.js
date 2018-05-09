@@ -50,11 +50,11 @@ re = /Hell\b/i; // Word Boundary - used to isolate the word instelf not just som
 
 
 // Assertions - like conditionals
-
-
+re = /x(?=y)/; // Match X only if it is followed by Y
+re = /x(?!y)/; // Match X only if it is not followed by Y -- we replace the = with a ! 
 
 // String to Match
-const str = 'Hello, welcome to Hell';
+const str = 'bndflbadxyfdbflsdl';
 
 // Log results
 const result = re.exec(str);
