@@ -26,9 +26,19 @@ re = /[0-9]ray/; // Can also match any numbers/digit in a range, but it will mat
 re = /[0-9][0-9]ray/; // will match 10ray
 
 // Braces {} - Quantifiers 
+ // you use a quantifier by checking the character before the curly braces and then we specify how many times to check for that character l x 2 = l{2},
+
+re = /hel{2}o/i; // must occur EXACTLY the {m} amount of times
+re = /hel{2,4}o/i; // Must occur BETWEEN {a-b} times 
+re = /hel{2,}o/i; // Must occur AT LEAST {m} times
+
+// Parentheses () - Grouping
+// we wrap a group of an expression in () to make sure that it looks for that specific evaluated string, kind of like BEDMAS
+re = /^([0-9]x){3}$/i; // ^ and $ to make sure that it only looks for 3x3x3x , we use ^ and $ many times
+
 
 // String to Match
-const str = 'Gray?';
+const str = '3x3x3x';
 
 // Log results
 const result = re.exec(str);
