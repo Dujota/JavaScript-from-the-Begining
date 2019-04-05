@@ -1,9 +1,7 @@
-const posts = [
-  {title: 'Post One', body: 'This is post one'},
-  {title: 'Post One', body: 'This is post one'}
-];
+const posts = [{ title: 'Post One', body: 'This is post one' }, { title: 'Post One', body: 'This is post one' }];
 
-function createPost(post, callback) { // pass a callback here
+function createPost(post, callback) {
+  // pass a callback here
   setTimeout(function() {
     posts.push(post);
     callback(); // invoke the calback here, can be any name, just used to run a function that is passed in
@@ -11,16 +9,16 @@ function createPost(post, callback) { // pass a callback here
 }
 
 function getPost() {
-  setTimeout(function () {
+  setTimeout(function() {
     let output = '';
     posts.forEach(function(post) {
-      output += `<li>${post.title}</li>`
+      output += `<li>${post.title}</li>`;
     });
 
     document.body.innerHTML = output;
-  },1000);
+  }, 1000);
 }
 
-createPost({title: 'Post Three', body: ' This is post three'}, getPost);
+createPost({ title: 'Post Three', body: ' This is post three' }, getPost);
 
 getPost();

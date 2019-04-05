@@ -1,7 +1,4 @@
-const posts = [
-  {title: 'Post One', body: 'This is post one'},
-  {title: 'Post One', body: 'This is post one'}
-];
+const posts = [{ title: 'Post One', body: 'This is post one' }, { title: 'Post One', body: 'This is post one' }];
 
 function createPost(post) {
   setTimeout(function() {
@@ -10,16 +7,16 @@ function createPost(post) {
 }
 
 function getPost() {
-  setTimeout(function () {
+  setTimeout(function() {
     let output = '';
     posts.forEach(function(post) {
-      output += `<li>${post.title}</li>`
+      output += `<li>${post.title}</li>`;
     });
 
     document.body.innerHTML = output;
-  },1000);
+  }, 1000);
 }
 
-createPost({title: 'Post Three', body: ' This is post three'});
+createPost({ title: 'Post Three', body: ' This is post three' });
 
 getPost();
