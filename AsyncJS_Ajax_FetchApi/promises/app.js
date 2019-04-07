@@ -37,7 +37,9 @@ createPost({
   title: 'Post Three',
   body: 'This is the third post',
 })
-  .then(getPosts) // instead of passing in a function for the callback we use the .then syntax at the end which will take the function we want to run after we are done with the create post. essentially it will run getPosts after the set timeout
+  .then(() => {
+    getPosts();
+  }) // instead of passing in a function for the callback we use the .then syntax at the end which will take the function we want to run after we are done with the create post. essentially it will run getPosts after the set timeout
   .catch(function(error) {
     console.log(error);
   });
